@@ -8,10 +8,10 @@ namespace ConsoleApp1
 {
     internal class Characters
     {
-        protected string name;
+        public string name;
         protected int vida;
         protected int daño;
-        protected int ac;
+        public int ac;
 
         public Characters(string name, int vida, int daño, int ac)
         {
@@ -30,18 +30,18 @@ namespace ConsoleApp1
 
         public virtual void attack(int i)
         {
-            Console.WriteLine($"{name} ataca a {Program.character[i].name}");
+            Console.WriteLine($"{name} ataca a {Program.pc[i].name}");
             Random random = new Random();
             int ranNum  = random.Next(1, 21);
 
-            if (ranNum >= Program.character[i].ac)
+            if (ranNum >= Program.pc[i].ac)
             {
-                Console.WriteLine($"{name} impacta a {Program.character[i].name}");
-                Program.character[i].lostLife(damageCheck());
+                Console.WriteLine($"{name} impacta a {Program.pc[i].name}");
+                Program.pc[i].lostLife(damageCheck());
             }
             else
             {  
-                Console.WriteLine($"{name} falla al atacar a {Program.character[i].name}");
+                Console.WriteLine($"{name} falla al atacar a {Program.pc[i].name}");
             }
         }
 
